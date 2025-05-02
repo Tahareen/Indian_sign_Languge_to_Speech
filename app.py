@@ -535,4 +535,4 @@ if __name__ == '__main__':
     camera = get_camera()
     
     # Run Flask app - use reloader=False to avoid duplicate resource initialization
-    app.run(host='0.0.0.0', port=5000, debug=True, threaded=True, use_reloader=False)
+    # app.run(host='0.0.0.0', port=5000, debug=True, threaded=True, use_reloader=False)
