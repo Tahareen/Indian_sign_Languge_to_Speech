@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Learning Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('home') }}" class="back-button">
+        &#8592; Back
+    </a>
+    
+    <div class="container">
+        <h1>Decode the Sign Word!</h1>
+        
+        <div class="difficulty-selector">
+            <h2>Select Difficulty Level</h2>
+            <div class="difficulty-buttons">
+                <button id="easy-level" class="difficulty-btn active">Easy (3 letters)</button>
+                <button id="medium-level" class="difficulty-btn">Medium (5 letters)</button>
+                <button id="hard-level" class="difficulty-btn">Hard (7-8 letters)</button>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div id="instructions">
+                <p>Watch the sign language images carefully!</p>
+                <p>After all images are shown, guess the word by typing it below.</p>
+                <button id="start-game">Start Game</button>
+            </div>
+            
+            <div id="game-play" class="hidden">
+                <div id="image-container">
+                    <img id="sign-image" src="" alt="Sign language image">
+                    <div id="guess-prompt" class="hidden">
+                        <h2>Guess it!!!</h2>
+                    </div>
+                </div>
+                
+                <div id="progress">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+            
+            <div id="guess-area" class="hidden">
+                <p>What was the word?</p>
+                <input type="text" id="user-guess" placeholder="Type your answer here">
+                <button id="submit-guess">Check Answer</button>
+                <button id="replay-signs" class="secondary-btn">Replay Signs</button>
+                <div id="feedback"></div>
+                <div class="game-controls">
+                    <button id="play-again" class="hidden">Play Again</button>
+                    <button id="new-word" class="hidden">New Word</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

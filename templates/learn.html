@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/learn.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('home') }}" class="back-button">
+        &#8592; Back
+    </a>
+    <div class="container">
+        <header>
+            <h1>Learn Sign Language</h1>
+            <p>Interact with any letter or number to enhance your sign language comprehension.</p>
+        </header>
+
+
+        <div class="sign-container">
+            <div class="section">
+                <h2>Alphabets</h2>
+                <div class="grid alphabet-grid">
+                    {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+                    <div class="sign-item" data-sign="{{ letter }}">
+                        <img src="{{ url_for('static', filename='images/' + letter + '.png') }}" alt="Sign for {{ letter }}">
+                        <span>{{ letter }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Numbers</h2>
+                <div class="grid number-grid">
+                    {% for number in range(1, 10) %}
+                    <div class="sign-item" data-sign="{{ number }}">
+                        <img src="{{ url_for('static', filename='images/' + number|string + '.png') }}" alt="Sign for {{ number }}">
+                        <span>{{ number }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for webcam -->
+    <div id="webcamModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Practice Sign: <span id="currentSign"></span></h2>
+            <div class="webcam-container">
+                <div class="webcam-wrapper">
+                    <video id="webcam" autoplay playsinline></video>
+                    
+                    <canvas id="canvas" style="display:none;"></canvas>
+                    <div id="overlay"></div>
+                    <div id="target-sign"></div>
+                    <div id="score-display"></div>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="control-btn">Start Camera</button>
+                    <button id="practiceBtn" class="control-btn" disabled>Start Practice</button>
+                </div>
+            </div>
+            <p id="instructions">Start the camera and try to match the sign for the letter or number you selected.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/learn.js') }}"></script>
+</body>
+</html>

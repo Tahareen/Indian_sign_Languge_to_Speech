@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Sign Language Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Speak.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('home') }}" class="back-button">
+        &#8592; Back
+    </a>
+    
+    <div class="container">
+        <h1>Speak with Your Hands!</h1>
+        <div class="recording-controls" style="margin: 15px 0; text-align: center;">
+            <button onclick="startCamera()">Start Camera</button>
+            <button onclick="stopStream()">Stop</button>
+    
+        </div>
+        
+        <div class="video-container">
+            <img id="video" style="display: none;" alt="Live Video Stream">
+        </div>
+        
+        <div class="controls">
+            <button onclick="addSpace()">Add Space</button>
+            <button onclick="backspace()">Backspace</button>
+            <button id="speak-button">Speak Text</button>
+            <button class="clear-btn" onclick="clearBuffer()">Clear All</button>
+        </div>
+        
+        <div id="text-display">
+            <p>The text to be spoken will appear here.</p>
+        </div>
+
+        <p id="status">Ready</p>
+
+        <div class="instructions">
+            <h2>How to Use:</h2>
+            <ul>
+                <li><strong>Show sign language gestures:</strong> The system will detect and recognize Indian Sign Language.</li>
+                <li><strong>Blink to capture:</strong> When you blink, the current detected gesture will be added to the text buffer.</li>
+                <li><strong>Add Space:</strong> Click the button to add a space between words.</li>
+                <li><strong>Backspace:</strong> Remove the last character from the buffer.</li>
+                <li><strong>Speak Text:</strong> Convert the buffer text to speech.</li>
+                <li><strong>Clear All:</strong> Empty the text buffer completely.</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='js/Speak.js') }}"></script>
+    
+</body>
+</html>

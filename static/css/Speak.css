@@ -1,0 +1,134 @@
+body {
+    font-family: 'Bubblegum Sans', cursive; 
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px 0;
+    border: 5px solid #3498db;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.speak-btn {
+    background-color: #2ecc71;
+}
+
+.speak-btn:hover {
+    background-color: #27ae60;
+}
+
+.clear-btn {
+    background-color: #e74c3c;
+}
+
+.clear-btn:hover {
+    background-color: #c0392b;
+}
+
+.instructions {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    max-width: 800px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h2 {
+    color: #3498db;
+    margin-top: 0;
+}
+
+.instructions ul {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+.status {
+    font-size: 18px;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+footer {
+    margin-top: 40px;
+    color: #7f8c8d;
+}
+.back-button {
+position: absolute;
+top: 20px;
+left: 20px;
+text-decoration: none;
+font-size: 20px;
+background-color: #f0f0f0;
+color: #333;
+padding: 8px 12px;
+border-radius: 5px;
+box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+transition: background-color 0.3s;
+}
+.back-button:hover {
+background-color: #e0e0e0;
+}

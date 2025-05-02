@@ -1,0 +1,294 @@
+/* Minimal, Classy, Yet Fun with Deep Blue and Bright Yellow */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bubblegum Sans', cursive;  /* Clean, modern font */
+}
+
+body {
+    background: #f7f8fa ; /* Half white, half deep blue */
+    color: #37474f; /* Dark grey for primary text */
+    animation: fadeIn 0.8s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Center content vertically */
+    margin: 0; /* Reset default body margin */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    max-width: 900px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for content area */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+h1 {
+    color: #0d47a1; /* Deep Blue main heading */
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    font-family: 'Bubblegum Sans', cursive;   /* Modern, bold font for heading */
+    letter-spacing: 0.5px;
+}
+
+.difficulty-selector {
+    margin-bottom: 30px;
+    background-color: rgba(255, 235, 59, 0.1); /* Light yellow tint */
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #ffeb3b;
+    animation: pulse subtle 3s infinite;
+}
+
+@keyframes pulse-subtle {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.01);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+.difficulty-selector h2 {
+    margin-bottom: 15px;
+    color: #0d47a1;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    background-color: #ffeb3b;
+    color: #0d47a1;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.difficulty-btn:hover {
+    background-color: #fdd835; /* Slightly darker yellow */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.difficulty-btn.active {
+    background-color: #0d47a1;
+    color: #ffeb3b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-area {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    border: 2px solid #0d47a1;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+#instructions {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#instructions p {
+    margin-bottom: 15px;
+    font-size: 1.15rem;
+    color: #37474f; /* Dark grey for readability */
+}
+
+button {
+    background-color: #ffeb3b;
+    color: #0d47a1;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #fdd835;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn {
+    background-color: #0d47a1;
+    color: #ffeb3b;
+}
+
+.secondary-btn:hover {
+    background-color: #1565c0; /* Slightly lighter blue */
+}
+
+#game-play {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#image-container {
+    width: 300px;
+    height: 300px;
+    border: 3px dashed #ffeb3b;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+    background-color: rgba(255, 235, 59, 0.05); /* Very light yellow tint */
+    overflow: hidden; /* Clip the sliding content */
+}
+
+#sign-image {
+    max-width: 90%;
+    max-height: 90%;
+    /* position: absolute; /* To enable sliding */
+    /* left: 0;
+    animation: slideInOut 4s infinite ease-in-out; */ 
+}
+
+/* @keyframes slideInOut {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20%); } 
+} */
+
+#guess-prompt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#image-container:hover #guess-prompt {
+    opacity: 1;
+}
+
+#guess-prompt h2 {
+    color: #0d47a1;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0.5px 0.5px #ffeb3b;
+    animation: pulse subtle 2s infinite;
+}
+
+#progress {
+    width: 100%;
+    height: 10px;
+    background-color: #e0f7fa; /* Light blue background */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #ffeb3b;
+    width: 0;
+    transition: width 0.3s linear;
+    border-radius: 8px;
+}
+
+#guess-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#guess-area p {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    color: #37474f;
+}
+
+#user-guess {
+    padding: 12px;
+    width: 300px;
+    font-size: 1rem;
+    border: 1px solid #0d47a1;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#feedback {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    min-height: 30px;
+    font-weight: 500;
+    color: #263238; /* Dark grey */
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.correct {
+    color: #4caf50; /* Green */
+    font-weight: 600;
+}
+
+.incorrect {
+    color: #f44336; /* Red */
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+.back-button:hover {
+    background-color: #e0e0e0;
+}
